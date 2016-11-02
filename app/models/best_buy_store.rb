@@ -6,7 +6,8 @@ class BestBuyStore
               :type,
               :store_id,
               :address,
-              :zip_code
+              :zip_code,
+              :state
 
   def initialize(store)
     @long_name = store[:longName]
