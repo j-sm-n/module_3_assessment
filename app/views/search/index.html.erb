@@ -1,3 +1,16 @@
 <div class="container">
-  <h1> <%= @store_count %> Total Stores </h1>
+  <h1> <%= @stores.store_count %> Total Stores </h1>
+
+  <div class="nearest-stores">
+    <% @stores.each do |store| %>
+      <p class="store">
+        <h2>Store Name: <%= store.long_name %></h2>
+        City: <%= store.city %>
+        Distance: <%= store.distance %>
+        Phone Number: <%= store.phone%>
+        Store Type: <%= store.type %>
+        <br>
+      </p>
+    <% end %>
+  </div>
 </div>

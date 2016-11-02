@@ -1,9 +1,23 @@
 class SearchController < ApplicationController
   def index
-    conn = Faraday.new(:url => 'https://api.bestbuy.com/v1') do |faraday|
-      faraday.request  :url_encoded             # form-encode POST params
-      faraday.response :logger                  # log requests to STDOUT
-      faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
+    res = conn.get do |req|
+      req.url "v1/stores(area(#{params[:search]},25))"
+      req.params['format'] = "json"
+      req.params['show'] = "storeId,storeType,longName,distance,city,phone"
+      req.params['pageSize'] = 15
+      req.params['apiKey'] = ENV['BB_API_KEY']
+    end
+
+    raw_stores = JSON.parse(res.body, symbolize_names: true)
+    
+    @total_store_count = raw_stores[:total]
+    @stores = BestBuyStore.new(raw_stores)
+    # require 'pry'; binding.pry
+  end
+
+  def conn
+    Faraday.new(:url => 'https://api.bestbuy.com/') do |faraday|
+      faraday.adapter  Faraday.default_adapter
     end
   end
 end
