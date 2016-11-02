@@ -15,3 +15,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore VCR Cassettes
+/spec/fixtures/vcr_cassettes/*.yml
+
+# Ignore application configuration
+/config/application.yml
