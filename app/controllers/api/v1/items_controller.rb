@@ -8,4 +8,10 @@ class Api::V1::ItemsController < ApplicationController
     @item = Item.find_by(params[:id])
     render json: @item
   end
+
+  def destroy
+    @item = Item.find_by(params[:id])
+    @item.destroy
+    render json: { "message": "Item #{params[:id]} was deleted" }
+  end
 end

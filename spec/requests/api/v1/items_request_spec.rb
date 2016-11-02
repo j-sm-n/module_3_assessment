@@ -37,5 +37,6 @@ describe "Items CRUD API" do
     res = JSON.parse(response.body)
 
     expect(response).to be_success
+    expect(res["message"]).to eq("Item #{item.id} was deleted")
   end
 end
