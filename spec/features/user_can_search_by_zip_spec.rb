@@ -20,7 +20,8 @@ describe "Zip code search functionality" do
         expect(page).to have_selector('.store', count: 15)
       end
       # And I should see the long name, city, distance, phone number and store type for each of the 15 results
-      within(first('.store')) do
+
+      within(first('.nearest-stores')) do
         expect(page).to have_content("Store Name: ")
         expect(page).to have_content("City: ")
         expect(page).to have_content("Distance: ")

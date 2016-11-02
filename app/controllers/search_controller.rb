@@ -9,10 +9,12 @@ class SearchController < ApplicationController
     end
 
     raw_stores = JSON.parse(res.body, symbolize_names: true)
-    
+
     @total_store_count = raw_stores[:total]
-    @stores = BestBuyStore.new(raw_stores)
     # require 'pry'; binding.pry
+    @stores = raw_stores[:stores].map do |store|
+      BestBuyStore.new(store)
+    end
   end
 
   def conn

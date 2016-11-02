@@ -5,12 +5,11 @@ class BestBuyStore
               :phone,
               :type
 
-  def initialize(raw_store)
-    @long_name
-    # require 'pry'; binding.pry
-    @city
-    @distance
-    @phone
-    @type
+  def initialize(store)
+    @long_name = store[:longName]
+    @city      = store[:city]
+    @distance  = store[:distance]
+    @phone     = store[:phone]
+    @type      = store[:storeType]
   end
 end
