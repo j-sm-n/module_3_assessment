@@ -36,7 +36,21 @@ describe "Items CRUD API" do
 
     res = JSON.parse(response.body)
 
-    expect(response).to be_success
+    # require 'pry'; binding.pry
+    expect(res["status"]).to eq("204")
     expect(res["message"]).to eq("Item #{item.id} was deleted")
+  end
+
+  it "posts a new item" do
+    params = {name: "Item 1", description: "This is a great item!", image_url: "www"}
+
+    post "http://localhost:3000/api/v1/items", params
+
+    res = JSON.parse(response.body)
+
+    # require 'pry'; binding.pry
+    expect(res["status"]).to eq("201")
+    expect(res["message"]).to eq("Item 'Item 1' was created!")
+    expect(Item.count).to eq(1)
   end
 end
