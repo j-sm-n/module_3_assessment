@@ -1,0 +1,16 @@
+<div class="container">
+  <h1> <%= @store.long_name %> </h1>
+
+  <div class="store">
+    <% @stores.each do |store| %>
+      <p class="store">
+        <h2>Store Name: <%= link_to store.long_name, "/stores/#{store.store_id}" %></h2>
+        City: <%= store.city %><br>
+        Distance: <%= store.distance %><br>
+        Phone Number: <%= store.phone%><br>
+        Store Type: <%= store.type %>
+        <br>
+      </p>
+    <% end %>
+  </div>
+</div>
