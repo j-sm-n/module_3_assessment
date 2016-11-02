@@ -20,5 +20,12 @@
         <a href="/orders">Orders</a>
       </li>
     </ul>
+
+    <%= form_tag("/search", method: "get", class: "navbar-form navbar-left") do %>
+      <%= label_tag(:search, "Search") %>
+      <%= text_field_tag(:search) %>
+      <%= submit_tag("Submit") %>
+    <% end %>
+
   </div>
 </nav>

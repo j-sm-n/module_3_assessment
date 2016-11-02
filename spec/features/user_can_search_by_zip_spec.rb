@@ -7,7 +7,7 @@ describe "Zip code search functionality" do
     visit root_path
     # And I fill in a search box with "80202" and click "search"
     fill_in "Search", with: "80202"
-    click_on "Search"
+    click_on "Submit"
 
     # Then my current path should be "/search" (ignoring params)
     expect(current_path).to eq("/search")
