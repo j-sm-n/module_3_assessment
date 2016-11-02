@@ -3,7 +3,10 @@ class BestBuyStore
               :city,
               :distance,
               :phone,
-              :type
+              :type,
+              :store_id,
+              :address,
+              :zip_code
 
   def initialize(store)
     @long_name = store[:longName]
@@ -11,5 +14,10 @@ class BestBuyStore
     @distance  = store[:distance]
     @phone     = store[:phone]
     @type      = store[:storeType]
+    @store_id  = store[:storeId]
+    @address   = store[:address]
+    @state     = store[:region]
+    @zip_code  = store[:postalCode]
+    # require 'pry'; binding.pry
   end
 end

@@ -12,7 +12,7 @@ class BestBuyService
     conn.get do |req|
       req.url "v1/stores(area(#{zip_code},25))"
       req.params['format'] = "json"
-      req.params['show'] = "storeId,storeType,longName,distance,city,phone"
+      req.params['show'] = "storeId,storeType,longName,distance,city,phone,address,region,postalCode"
       req.params['pageSize'] = 15
       req.params['apiKey'] = ENV['BB_API_KEY']
     end
