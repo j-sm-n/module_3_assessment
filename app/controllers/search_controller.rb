@@ -9,6 +9,9 @@ class SearchController < ApplicationController
   end
 
   def show
-    
+    raw_store = BestBuyStoreService.new(params[:store_id])
+
+    @store_info = raw_store.store_info
+    @store_hours = raw_store.hours
   end
 end

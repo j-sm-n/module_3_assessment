@@ -4,7 +4,7 @@
   <div class="nearest-stores">
     <% @stores.each do |store| %>
       <p class="store">
-        <h2>Store Name: <%= store.long_name %></h2>
+        <h2>Store Name: <%= link_to store.long_name, "/stores/#{store.store_id}" %></h2>
         City: <%= store.city %><br>
         Distance: <%= store.distance %><br>
         Phone Number: <%= store.phone%><br>
